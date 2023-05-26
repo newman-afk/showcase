@@ -22,7 +22,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Attention
 
-After you make DATABASE_URL and schema.prisma done and before you deploy your application to vercel, make sure run belowing the following command first.
+After you make DATABASE_URL and schema.prisma done and before you deploy your application to vercel, make sure run the following command first.
 
 ```bash
 npx prisma db push

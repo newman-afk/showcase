@@ -18,6 +18,7 @@ export async function POST(request: Request) {
       data = { ok: true, message: "Registered successfully!" };
     })
     .catch((err) => {
+      data = { ok: false, message: err.message };
       if (err.code === "P2002") {
         data = {
           ok: false,

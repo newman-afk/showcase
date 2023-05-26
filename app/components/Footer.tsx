@@ -1,6 +1,7 @@
 import ThemeButton from "./ThemeButton";
 
 function Footer() {
+  const year = new Date().getFullYear();
   return (
     <footer className="bg-white dark:bg-gray-900">
       <div className="mx-auto w-full max-w-screen-xl">
@@ -111,7 +112,7 @@ function Footer() {
         </div>
         <div className="bg-gray-100 px-4 py-6 dark:bg-gray-700 md:flex md:items-center md:justify-between">
           <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
-            © 2023 <a href="https://flowbite.com/">Flowbite™</a>. All Rights
+            © {year} <a href="https://flowbite.com/">Rust™</a>. All Rights
             Reserved.
           </span>
           <div className="mt-4 flex space-x-6 sm:justify-center md:mt-0">
@@ -166,7 +167,8 @@ function Footer() {
               <span className="sr-only">Twitter page</span>
             </a>
             <a
-              href="#"
+              href="https://github.com/newman-afk/showcase"
+              target="_blank"
               className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
             >
               <svg

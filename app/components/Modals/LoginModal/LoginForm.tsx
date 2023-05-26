@@ -26,7 +26,7 @@ function LoginForm() {
   } = useForm<LoginFormData>({ resolver: zodResolver(schema) });
 
   function submit(data: LoginFormData) {
-    toast.loading("Loging...", { id: "login" });
+    toast.loading("Log in...", { id: "login" });
     signIn("credentials", {
       ...data,
       redirect: false,

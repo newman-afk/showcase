@@ -37,11 +37,13 @@ function Carousel() {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      goNext();
-    }, 5000);
+    if (window !== undefined) {
+      const interval = setInterval(() => {
+        goNext();
+      }, 5000);
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }
   }, []);
 
   return (

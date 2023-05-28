@@ -58,6 +58,7 @@ function Carousel() {
               )}
             >
               <Image
+                priority
                 alt={image.alt}
                 fill={true}
                 sizes="100%"

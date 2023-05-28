@@ -110,11 +110,11 @@ function ProductInfo() {
               <button
                 type="button"
                 className={clsx(
-                  "mb-2 ml-0 mr-2 self-start rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-l focus:outline-none focus:ring-4 focus:ring-purple-200 dark:focus:ring-purple-800",
+                  "mb-2 ml-0 mr-2 self-start rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-2.5 text-center text-sm font-medium uppercase text-white hover:bg-gradient-to-l focus:outline-none focus:ring-4 focus:ring-purple-200 dark:focus:ring-purple-800",
                   i % 2 === 1 && "xl:self-end"
                 )}
               >
-                Try it now!
+                Try it now !
               </button>
             </div>
           </div>

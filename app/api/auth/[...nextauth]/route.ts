@@ -53,8 +53,16 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
+  pages: {
+    signIn: "/login",
+  },
   session: {
     strategy: "jwt",
+  },
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      return baseUrl;
+    },
   },
 };
 

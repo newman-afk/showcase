@@ -42,8 +42,12 @@ model User {
   name           String?
   email          String?   @unique
   hashedPassword String?
+  role           ROLE      @default(USER)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
   emailVerified  DateTime?
   image          String?
+  cart           Cart?
   accounts       Account[]
   sessions       Session[]
 }
@@ -55,4 +59,47 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Cart {
+  id       String            @id @default(auto()) @map("_id") @db.ObjectId
+  userId   String            @unique @db.ObjectId
+  products ProductsOnCarts[]
+  user     User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Product {
+  id          String            @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  price       Int
+  stock       Int
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  brand       String
+  carts       ProductsOnCarts[]
+  categoryIDs String[]          @db.ObjectId
+  categories  Category[]        @relation(fields: [categoryIDs], references: [id])
+}
+
+model ProductsOnCarts {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  Cart      Cart    @relation(fields: [cartId], references: [id])
+  cartId    String  @db.ObjectId
+  Product   Product @relation(fields: [productId], references: [id])
+  productId String  @db.ObjectId
+  quantity  Int
+
+  @@unique([cartId, productId])
+}
+
+model Category {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  productIDs String[]  @db.ObjectId
+  products   Product[] @relation(fields: [productIDs], references: [id])
+}
+
+enum ROLE {
+  ADMIN
+  USER
 }

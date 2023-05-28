@@ -75,24 +75,6 @@ function MainMenu() {
           <Menu.Item>
             {({ active }) => (
               <Link
-                href="/services"
-                className={clsx(
-                  "block rounded py-2 pl-3 pr-4 text-gray-900 dark:border-gray-700 dark:text-white md:p-0",
-                  active &&
-                    pathname !== "/services" &&
-                    "bg-gray-100 dark:bg-gray-700 md:bg-transparent md:text-blue-700 md:dark:bg-transparent md:dark:text-blue-500",
-                  pathname === "/services" &&
-                    "bg-blue-700 text-white md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
-                )}
-                aria-current="page"
-              >
-                Services
-              </Link>
-            )}
-          </Menu.Item>
-          <Menu.Item>
-            {({ active }) => (
-              <Link
                 href="/pricing"
                 className={clsx(
                   "block rounded py-2 pl-3 pr-4 text-gray-900 dark:border-gray-700 dark:text-white md:p-0",

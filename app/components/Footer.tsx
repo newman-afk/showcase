@@ -1,4 +1,4 @@
-import ThemeButton from "./ThemeButton";
+import Link from "next/link";
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -8,13 +8,13 @@ function Footer() {
         <div className="grid grid-cols-2 gap-8 px-4 py-6 md:grid-cols-4 lg:py-8">
           <div>
             <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
-              Company
+              Chats
             </h2>
             <ul className="font-medium text-gray-500 dark:text-gray-400">
               <li className="mb-4">
-                <a href="#" className=" hover:underline">
-                  About
-                </a>
+                <Link href="/chats/chatsapp" className=" hover:underline">
+                  Chats App
+                </Link>
               </li>
               <li className="mb-4">
                 <a href="#" className="hover:underline">

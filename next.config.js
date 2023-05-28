@@ -12,6 +12,16 @@ const nextConfig = {
         hostname: "lh3.googleusercontent.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "i.ibb.co",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "flowbite.s3.amazonaws.com",
+        port: "",
+      },
     ],
   },
 };

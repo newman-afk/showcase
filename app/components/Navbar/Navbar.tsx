@@ -10,7 +10,7 @@ interface NavbarProps {
 function Navbar({ currentUser }: NavbarProps) {
   return (
     <>
-      <nav className="relative border-gray-200 bg-white dark:bg-gray-900">
+      <nav className="relative border-gray-200 bg-white shadow dark:bg-gray-900">
         <div className="mx-auto flex max-w-screen-xl flex-wrap items-center p-4 md:justify-between">
           {/* logo */}
           <Link href="/" className="flex flex-1 items-center md:flex-initial">

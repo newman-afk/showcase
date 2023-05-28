@@ -59,11 +59,11 @@ export const authOptions: AuthOptions = {
   session: {
     strategy: "jwt",
   },
-  // callbacks: {
-  //   async redirect({ url, baseUrl }) {
-  //     return baseUrl;
-  //   },
-  // },
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      return baseUrl;
+    },
+  },
 };
 
 const handler = NextAuth(authOptions);

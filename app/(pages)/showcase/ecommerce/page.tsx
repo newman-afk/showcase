@@ -16,10 +16,11 @@ export async function generateStaticParams() {
   }));
 }
 async function EcommercePage() {
-  const products: ProductsType = await getAllProducts();
+  // const products: ProductsType = await getAllProducts();
   return (
     <div className="mx-auto max-w-screen-xl bg-slate-50 p-8 dark:bg-gray-900">
-      <div className="grid grid-cols-1 gap-4 text-slate-50 md:grid-cols-2">
+      1{" "}
+      {/* <div className="grid grid-cols-1 gap-4 text-slate-50 md:grid-cols-2">
         {products?.data?.map((product) => (
           <div
             key={product.id}
@@ -115,7 +116,7 @@ async function EcommercePage() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

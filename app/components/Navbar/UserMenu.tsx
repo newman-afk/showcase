@@ -18,7 +18,7 @@ function UserMenu() {
   });
 
   const currentUser = userQuery.data;
-  console.log("currentUser", currentUser);
+
   return (
     <>
       {currentUser ? (

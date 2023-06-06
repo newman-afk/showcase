@@ -2,6 +2,7 @@ import getCurrentUser from "@/app/actions/getCurrentUser";
 import { prisma } from "@/app/utils/db";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
 export async function GET(request: Request) {
   const currentUser = await getCurrentUser();
 
@@ -22,7 +23,7 @@ export async function GET(request: Request) {
 
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id") as string;
-
+  console.log(id);
   try {
     const result = await prisma.productsOnCarts.findFirst({
       where: {
@@ -34,6 +35,4 @@ export async function GET(request: Request) {
   } catch (error) {
     return NextResponse.json(false);
   }
-
-  return NextResponse.json(false);
 }

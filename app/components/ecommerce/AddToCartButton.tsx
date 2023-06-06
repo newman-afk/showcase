@@ -1,11 +1,12 @@
 "use client";
 
 import { ProductInCart, addToCart } from "@/app/actions/cart";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import { toast } from "react-hot-toast";
 
 function AddToCartButrton({ productId }: { productId: string }) {
+  const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: addToCart,
     onMutate() {
@@ -18,7 +19,10 @@ function AddToCartButrton({ productId }: { productId: string }) {
 
       if (ok) {
         toast.success(message);
-        // router.refresh();
+        queryClient.invalidateQueries({
+          queryKey: [`is product id ${[productId]} in cart`],
+        });
+        queryClient.invalidateQueries({ queryKey: ["quantity"] });
       }
       if (!ok) toast.error(error);
     },
@@ -33,7 +37,7 @@ function AddToCartButrton({ productId }: { productId: string }) {
   });
 
   const query = useQuery({
-    queryKey: ["is-product-in-cart"],
+    queryKey: [`is product id ${[productId]} in cart`],
     queryFn: () => ProductInCart(productId),
   });
 

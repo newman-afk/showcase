@@ -5,11 +5,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { createNewBrand } from "@/app/actions/brands";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 function CreateBrandForm() {
-  const router = useRouter();
+  const queryClient = useQueryClient();
 
   const schema = z.object({
     brand: z.string().min(2).max(20),
@@ -42,7 +41,7 @@ function CreateBrandForm() {
       if (ok) {
         toast.success(message);
         reset();
-        router.refresh();
+        queryClient.invalidateQueries({ queryKey: ["brands"] });
       }
       if (!ok) toast.error(error);
     },

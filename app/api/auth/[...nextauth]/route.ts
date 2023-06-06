@@ -5,7 +5,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/app/utils/db";
 import bcrypt from "bcrypt";
-import getQueryClient from "@/app/utils/getQueryClient";
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -62,8 +61,6 @@ export const authOptions: AuthOptions = {
   },
   callbacks: {
     async redirect({ url, baseUrl }) {
-      const queryClient = getQueryClient();
-      queryClient.invalidateQueries(["user"]);
       return baseUrl;
     },
   },

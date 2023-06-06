@@ -3,13 +3,12 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createNewCategory } from "@/app/actions/categories";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
 
 function CreateCategoryForm() {
-  const router = useRouter();
+  const queryClient = useQueryClient();
   const schema = z.object({
     category: z.string().min(2).max(20),
   });
@@ -20,6 +19,7 @@ function CreateCategoryForm() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<formData>({ resolver: zodResolver(schema) });
 
   const mutation = useMutation({
@@ -39,7 +39,8 @@ function CreateCategoryForm() {
 
       if (ok) {
         toast.success(message);
-        router.refresh();
+        reset();
+        queryClient.invalidateQueries({ queryKey: ["categories"] });
       }
       if (!ok) toast.error(error);
     },

@@ -6,7 +6,6 @@ import Image from "next/image";
 import clsx from "clsx";
 import { signOut } from "next-auth/react";
 import useLoginModal from "@/app/hooks/zustand/useLoginModal";
-import { SafeUser } from "@/app/types";
 import { useQuery } from "@tanstack/react-query";
 import getCurrentUser_Client from "@/app/actions/getCurrentUser_Client";
 
@@ -18,7 +17,8 @@ function UserMenu() {
     queryFn: getCurrentUser_Client,
   });
 
-  const currentUser: SafeUser | null = userQuery.data;
+  const currentUser = userQuery.data;
+  console.log("currentUser", currentUser);
   return (
     <>
       {currentUser ? (

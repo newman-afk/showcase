@@ -5,13 +5,12 @@ import { toast } from "react-hot-toast";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { getAllCategories } from "@/app/actions/categories";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getAllBrands } from "@/app/actions/brands";
 import { CldImage, CldUploadWidget } from "next-cloudinary";
 import { useState } from "react";
 import { createNewProduct } from "@/app/actions/products";
 import type { Brand, Category } from "@prisma/client";
-import { useRouter } from "next/navigation";
 
 const preset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
 
@@ -24,7 +23,7 @@ type BrandsQueryData = {
   data: Brand[];
 };
 function CreateProductForm() {
-  const router = useRouter();
+  const queryClient = useQueryClient();
   const [url, setUrl] = useState<undefined | string>();
 
   const categoriesQuery = useQuery<CategoriesQueryData>({
@@ -90,6 +89,7 @@ function CreateProductForm() {
       if (ok) {
         toast.success(message);
         reset();
+        queryClient.invalidateQueries({ queryKey: ["products"] });
       }
       if (!ok) toast.error(error);
     },

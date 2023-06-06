@@ -1,11 +1,12 @@
 import { Toaster } from "react-hot-toast";
-import getCurrentUser from "../actions/getCurrentUser";
 import Footer from "../components/Footer";
 import LoginModal from "../components/Modals/LoginModal/LoginModal";
 import RegisterModal from "../components/Modals/registerModal/RegisterModal";
 import Navbar from "../components/Navbar/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Providers from "../utils/providers";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,17 +20,18 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const currentUser = await getCurrentUser();
-
   return (
-    <html lang="en" className=" scroll-smooth">
+    <html lang="en" className=" scroll-smooth bg-slate-50 dark:bg-gray-900">
       <body className={inter.className}>
-        <Toaster />
-        <LoginModal />
-        <RegisterModal />
-        <Navbar currentUser={currentUser} />
-        {children}
-        <Footer />
+        <Providers>
+          <Toaster />
+          <LoginModal />
+          <RegisterModal />
+          <Navbar />
+          {children}
+          <Footer />
+          <ReactQueryDevtools />
+        </Providers>
       </body>
     </html>
   );

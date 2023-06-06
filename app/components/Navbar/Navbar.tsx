@@ -1,16 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import MainMenu from "./MainMenu";
-import UserMenu from "./UserMenu";
-import { SafeUser } from "@/app/types";
+import HydratedUserMenu from "./HydratedUserMenu";
 
-interface NavbarProps {
-  currentUser: SafeUser | null;
-}
-function Navbar({ currentUser }: NavbarProps) {
+function Navbar() {
   return (
     <>
-      <nav className="relative border-gray-200 bg-white shadow dark:bg-gray-900">
+      <nav className="relative z-50 border-gray-200 bg-white shadow dark:bg-gray-900 dark:shadow-slate-800">
         <div className="mx-auto flex max-w-screen-xl flex-wrap items-center p-4 md:justify-between">
           {/* logo */}
           <Link href="/" className="flex flex-1 items-center md:flex-initial">
@@ -25,9 +21,8 @@ function Navbar({ currentUser }: NavbarProps) {
               Showcase
             </span>
           </Link>
-
-          <UserMenu currentUser={currentUser} />
-
+          {/* @ts-expect-error Async Server Component */}
+          <HydratedUserMenu />
           <MainMenu />
         </div>
       </nav>

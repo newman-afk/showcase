@@ -1,15 +1,22 @@
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 
 const ProductsInfo = [
   {
     id: "ecommerce",
+    name: "ECommerce",
+    href: "/showcase/ecommerce",
   },
   {
-    id: "test2",
+    id: "chatapp",
+    name: "Chatapp",
+    href: "/showcase/chatapp",
   },
   {
-    id: "test3",
+    id: "videochatapp",
+    name: "VideoChatapp",
+    href: "/showcase/videochatapp",
   },
 ];
 function ProductInfo() {
@@ -23,7 +30,7 @@ function ProductInfo() {
         >
           <div
             className={clsx(
-              "flex-1 items-center justify-evenly rounded-xl p-4 shadow dark:shadow-orange-100 xl:flex xl:p-16",
+              "flex-1 items-center justify-evenly rounded-xl p-4 shadow shadow-stone-400 dark:shadow-orange-100 xl:flex xl:p-16",
               i % 2 === 1 && "xl:flex-row-reverse"
             )}
           >
@@ -64,7 +71,7 @@ function ProductInfo() {
                   )}
                 >
                   <span className="mr-1.5 flex h-2.5 w-2.5 flex-shrink-0 rounded-full bg-blue-600"></span>
-                  Ecommerce
+                  {info.name}
                 </span>
 
                 <div
@@ -107,7 +114,8 @@ function ProductInfo() {
                 velit earum totam maiores libero deleniti. Sint nemo at
                 dignissimos quam neque natus labore quis ducimus et incidunt.
               </div>
-              <button
+              <Link
+                href={info.href}
                 type="button"
                 className={clsx(
                   "mb-2 ml-0 mr-2 self-start rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-2.5 text-center text-sm font-medium uppercase text-white hover:bg-gradient-to-l focus:outline-none focus:ring-4 focus:ring-purple-200 dark:focus:ring-purple-800",
@@ -115,7 +123,7 @@ function ProductInfo() {
                 )}
               >
                 Try it now !
-              </button>
+              </Link>
             </div>
           </div>
         </div>

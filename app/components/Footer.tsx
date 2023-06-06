@@ -12,7 +12,7 @@ function Footer() {
             </h2>
             <ul className="font-medium text-gray-500 dark:text-gray-400">
               <li className="mb-4">
-                <Link href="/chats/chatsapp" className=" hover:underline">
+                <Link href="/" className=" hover:underline">
                   Chats App
                 </Link>
               </li>

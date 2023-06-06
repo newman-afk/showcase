@@ -13,14 +13,14 @@ const Images = [
   },
   {
     id: "2",
-    alt: "fads",
-    href: "#test2",
+    alt: "chatapp",
+    href: "#chatapp",
     src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
   },
   {
     id: "3",
-    alt: "fads",
-    href: "#test3",
+    alt: "videochatapp",
+    href: "#videochatapp",
     src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
   },
 ];
@@ -37,13 +37,11 @@ function Carousel() {
   }
 
   useEffect(() => {
-    if (window !== undefined) {
-      const interval = setInterval(() => {
-        goNext();
-      }, 5000);
+    const interval = setInterval(() => {
+      goNext();
+    }, 5000);
 
-      return () => clearInterval(interval);
-    }
+    return () => clearInterval(interval);
   }, []);
 
   return (

@@ -63,9 +63,9 @@ model VerificationToken {
 
 model Cart {
   id       String            @id @default(auto()) @map("_id") @db.ObjectId
-  userId   String            @unique @db.ObjectId
   products ProductsOnCarts[]
-  user     User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user     User?             @relation(fields: [userId], references: [id])
+  userId   String?           @unique @db.ObjectId
 }
 
 model Product {
@@ -73,19 +73,30 @@ model Product {
   name        String
   price       Int
   stock       Int
+  description String
+  image       String
   createdAt   DateTime          @default(now())
   updatedAt   DateTime          @updatedAt
-  brand       String
   carts       ProductsOnCarts[]
   categoryIDs String[]          @db.ObjectId
   categories  Category[]        @relation(fields: [categoryIDs], references: [id])
+  brand       Brand             @relation(fields: [brandName], references: [name])
+  brandName   String
+
+  @@unique([name, brandName])
+}
+
+model Brand {
+  id      String    @id @default(auto()) @map("_id") @db.ObjectId
+  name    String    @unique
+  product Product[]
 }
 
 model ProductsOnCarts {
   id        String  @id @default(auto()) @map("_id") @db.ObjectId
-  Cart      Cart    @relation(fields: [cartId], references: [id])
+  cart      Cart    @relation(fields: [cartId], references: [id])
   cartId    String  @db.ObjectId
-  Product   Product @relation(fields: [productId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
   productId String  @db.ObjectId
   quantity  Int
 
@@ -94,7 +105,7 @@ model ProductsOnCarts {
 
 model Category {
   id         String    @id @default(auto()) @map("_id") @db.ObjectId
-  name       String
+  name       String    @unique
   productIDs String[]  @db.ObjectId
   products   Product[] @relation(fields: [productIDs], references: [id])
 }

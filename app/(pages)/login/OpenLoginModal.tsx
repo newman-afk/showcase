@@ -1,7 +1,7 @@
 "use client";
 
 import useLoginModal from "@/app/hooks/zustand/useLoginModal";
-import { useCallback, useEffect, useMemo } from "react";
+import { useEffect } from "react";
 
 function OpenLoginModal() {
   const loginModal = useLoginModal();

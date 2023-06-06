@@ -12,33 +12,32 @@ export async function generateStaticParams() {
   const products: ProductsType = await getAllProducts();
 
   return products?.data?.map((product) => ({
-    slug: product.id,
+    slug: product?.id,
   }));
 }
 async function EcommercePage() {
-  // const products: ProductsType = await getAllProducts();
+  const products: ProductsType = await getAllProducts();
   return (
     <div className="mx-auto max-w-screen-xl bg-slate-50 p-8 dark:bg-gray-900">
-      1{" "}
-      {/* <div className="grid grid-cols-1 gap-4 text-slate-50 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 text-slate-50 md:grid-cols-2">
         {products?.data?.map((product) => (
           <div
-            key={product.id}
+            key={product?.id}
             className="w-full max-w-sm rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
           >
             <Link
-              href={`/showcase/ecommerce/product?=${product.id}`}
+              href={`/showcase/ecommerce/product?=${product?.id}`}
               className="w-full"
             >
               <div className="w-full p-8">
                 <div className="relative aspect-video overflow-hidden rounded-lg">
                   <Image
                     priority
-                    src={product.image}
+                    src={product?.image}
                     fill
                     sizes="100%"
                     style={{ objectFit: "contain" }}
-                    alt={`product-${product.name}`}
+                    alt={`product-${product?.name}`}
                   />
                 </div>
               </div>
@@ -47,9 +46,9 @@ async function EcommercePage() {
               <a href="#">
                 <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                   <span className="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                    {product.brandName}
+                    {product?.brandName}
                   </span>
-                  {product.name} <br />
+                  {product?.name} <br />
                 </h5>
               </a>
               <div className="mb-5 mt-2.5 flex items-center">
@@ -109,14 +108,14 @@ async function EcommercePage() {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                  ${product.price}
+                  ${product?.price}
                 </span>
-                <AddToCartButrton productId={product.id} />
+                <AddToCartButrton productId={product?.id} />
               </div>
             </div>
           </div>
         ))}
-      </div> */}
+      </div>
     </div>
   );
 }

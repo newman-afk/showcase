@@ -3,6 +3,7 @@ import { prisma } from "@/app/utils/db";
 import { SafeProduct } from "@/app/types";
 import { NextResponse } from "next/server";
 
+export const dynamic = "force-dynamic";
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id");

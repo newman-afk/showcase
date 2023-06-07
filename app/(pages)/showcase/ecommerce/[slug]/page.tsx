@@ -14,6 +14,7 @@ type ProductsType = {
   ok: boolean;
   data: Product[];
 };
+
 export async function generateStaticParams() {
   const products: ProductsType = await getAllProducts();
 
@@ -21,6 +22,7 @@ export async function generateStaticParams() {
     slug: product?.id,
   }));
 }
+
 async function ProductPage({
   searchParams,
 }: {

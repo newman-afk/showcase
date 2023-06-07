@@ -1,5 +1,5 @@
 import { Hydrate, dehydrate } from "@tanstack/react-query";
-import getQueryClient from "../../../../../../utils/getQueryClient";
+import getQueryClient from "../../../../../../lib/getQueryClient";
 import { getAllCategories } from "../../../../../../actions/categories";
 import Categories from "./Categories";
 

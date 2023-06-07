@@ -1,6 +1,6 @@
 "use client";
 
-import getStripe from "@/app/utils/stripeClient";
+import getStripe from "@/app/lib/stripeClient";
 import axios from "axios";
 import { FormEvent } from "react";
 

@@ -5,7 +5,7 @@ import RegisterModal from "../components/registerModal/RegisterModal";
 import Navbar from "./components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Providers from "../utils/providers";
+import Providers from "../lib/providers";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const inter = Inter({ subsets: ["latin"] });

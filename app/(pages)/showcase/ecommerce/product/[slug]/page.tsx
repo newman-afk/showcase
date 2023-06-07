@@ -1,3 +1,5 @@
+// export const dynamic = "force-dynamic";
+
 import { getAllProducts, getProduct } from "@/app/actions/products";
 import DangerAlert from "@/app/components/DangerAlert";
 import InfoAlert from "@/app/components/InfoAlert";
@@ -23,13 +25,9 @@ export async function generateStaticParams() {
   }));
 }
 
-async function ProductPage({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
+async function ProductPage({ params }: { params: { slug: string } }) {
   const result: ProductResultType = await getProduct({
-    productId: searchParams.id as string,
+    productId: params.slug,
   });
   const { ok, data, error } = result;
   const product = data;
@@ -44,7 +42,7 @@ async function ProductPage({
           className="w-full rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
         >
           <Link
-            href={`/showcase/ecommerce/product?id=${product?.id}`}
+            href={`/showcase/ecommerce/product/${product?.id}`}
             className="w-full"
           >
             <div className="w-full p-8">

@@ -3,7 +3,7 @@ import { prisma } from "@/app/lib/db";
 import { SafeProduct } from "@/app/types";
 import { NextResponse } from "next/server";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id");
@@ -22,7 +22,7 @@ export async function GET(request: Request) {
         }
       });
   }
-
+  // return NextResponse.json({ ok: true, data: [] });
   return await prisma.product
     .findMany()
     .then((products) => {

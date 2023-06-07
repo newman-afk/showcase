@@ -27,7 +27,7 @@ function Products() {
             className="w-full rounded-lg border border-gray-200 bg-white shadow dark:border-gray-700 dark:bg-gray-800"
           >
             <Link
-              href={`/showcase/ecommerce/product?id=${product?.id}`}
+              href={`/showcase/ecommerce/product/${product?.id}`}
               className="w-full"
             >
               <div className="w-full p-8">

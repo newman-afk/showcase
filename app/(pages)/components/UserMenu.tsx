@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@headlessui/react";
-import ThemeButton from "../ThemeButton";
+import ThemeButton from "./ThemeButton";
 import Image from "next/image";
 import clsx from "clsx";
 import { signOut } from "next-auth/react";

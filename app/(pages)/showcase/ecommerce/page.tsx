@@ -1,4 +1,4 @@
-import HydratedProducts from "@/app/components/ecommerce/products/HydratedProducts";
+import HydratedProducts from "@/app/(pages)/showcase/ecommerce/admin/products/components/HydratedProducts";
 
 async function EcommercePage() {
   return (

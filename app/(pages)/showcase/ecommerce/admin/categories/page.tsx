@@ -1,5 +1,5 @@
-import CreateCategoryForm from "@/app/components/ecommerce/categories/CreateCategoryForm";
-import HydratedCategories from "@/app/components/ecommerce/categories/HydratedCategories";
+import CreateCategoryForm from "@/app/(pages)/showcase/ecommerce/admin/categories/components/CreateCategoryForm";
+import HydratedCategories from "@/app/(pages)/showcase/ecommerce/admin/categories/components/HydratedCategories";
 
 function AdminCategoriesPage() {
   return (

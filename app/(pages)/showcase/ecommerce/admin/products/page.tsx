@@ -1,4 +1,4 @@
-import CreateProductForm from "@/app/components/ecommerce/products/CreateProductForm";
+import CreateProductForm from "@/app/(pages)/showcase/ecommerce/admin/products/components/CreateProductForm";
 
 function AdminProductsPage() {
   return (

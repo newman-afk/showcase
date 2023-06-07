@@ -1,8 +1,8 @@
 import { Toaster } from "react-hot-toast";
-import Footer from "../components/Footer";
-import LoginModal from "../components/Modals/LoginModal/LoginModal";
-import RegisterModal from "../components/Modals/registerModal/RegisterModal";
-import Navbar from "../components/Navbar/Navbar";
+import Footer from "./components/Footer";
+import LoginModal from "../components/LoginModal/LoginModal";
+import RegisterModal from "../components/registerModal/RegisterModal";
+import Navbar from "./components/Navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Providers from "../utils/providers";

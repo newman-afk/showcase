@@ -1,5 +1,5 @@
-import Carousel from "../components/Carousel";
-import ProductInfo from "../components/ProductInfo";
+import Carousel from "./components/Carousel";
+import ProductInfo from "./components/ProductInfo";
 
 export default function Home() {
   return (

@@ -1,6 +1,6 @@
-import { getProduct } from "@/app/actions/products";
-import DangerAlert from "@/app/components/alert/DangerAlert";
-import InfoAlert from "@/app/components/alert/InfoAlert";
+import { getAllProducts, getProduct } from "@/app/actions/products";
+import DangerAlert from "@/app/components/DangerAlert";
+import InfoAlert from "@/app/components/InfoAlert";
 import type { Product } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +10,17 @@ type ProductResultType = {
   data: Product;
   error: string;
 };
+type ProductsType = {
+  ok: boolean;
+  data: Product[];
+};
+export async function generateStaticParams() {
+  const products: ProductsType = await getAllProducts();
+
+  return products?.data?.map((product) => ({
+    slug: product?.id,
+  }));
+}
 async function ProductPage({
   searchParams,
 }: {

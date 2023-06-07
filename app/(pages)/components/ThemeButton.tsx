@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import useLocalStorage from "../hooks/useLocalStorage";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import { useEffect } from "react";
 
 function ThemeButton() {

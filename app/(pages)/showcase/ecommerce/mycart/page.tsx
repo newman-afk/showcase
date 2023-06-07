@@ -1,4 +1,4 @@
-import CheckoutButton from "@/app/components/ecommerce/CheckoutButton";
+import CheckoutButton from "@/app/(pages)/showcase/ecommerce/mycart/CheckoutButton";
 
 function MyCartPage() {
   return (

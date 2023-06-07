@@ -1,7 +1,10 @@
 "use client";
 
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { deleteCategory, getAllCategories } from "../../../actions/categories";
+import {
+  deleteCategory,
+  getAllCategories,
+} from "../../../../../../actions/categories";
 import { toast } from "react-hot-toast";
 import type { Category } from "@prisma/client";
 

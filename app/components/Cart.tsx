@@ -14,12 +14,7 @@ function Cart() {
 
   const data = result === null ? [] : result;
 
-  return (
-    <div>
-      {data === null && <div>Loading</div>}
-      {data && <DataTable columns={columns} data={data} />}
-    </div>
-  );
+  return <div>{data && <DataTable columns={columns} data={data} />}</div>;
 }
 
 export default Cart;

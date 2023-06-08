@@ -39,7 +39,8 @@ function Checkout<TData>({ table }: CheckoutProps<TData>) {
       <button
         type="button"
         onClick={submit}
-        className="mb-2 mr-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-2.5 text-center text-sm font-medium uppercase text-white hover:bg-gradient-to-l focus:outline-none focus:ring-4 focus:ring-purple-200 dark:focus:ring-purple-800"
+        disabled={table.getSelectedRowModel()?.rows?.length === 0}
+        className="mb-2 mr-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 px-5 py-2.5 text-center text-sm font-medium uppercase text-white hover:bg-gradient-to-l focus:outline-none focus:ring-4 focus:ring-purple-200 disabled:opacity-50 dark:focus:ring-purple-800"
       >
         Checkout
       </button>

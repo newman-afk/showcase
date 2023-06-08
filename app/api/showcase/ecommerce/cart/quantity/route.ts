@@ -28,7 +28,7 @@ export async function GET() {
       },
     });
 
-    return NextResponse.json(productsInCart.length);
+    return NextResponse.json(productsInCart?.length);
   } catch (error) {
     return NextResponse.json(0);
   }

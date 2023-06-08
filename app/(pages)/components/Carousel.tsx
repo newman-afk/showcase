@@ -29,11 +29,15 @@ function Carousel() {
   const [currentImageIndex, setCurrentImageIndex] = useState(2);
 
   function goPrev() {
-    setCurrentImageIndex((prev) => (prev === 0 ? Images.length - 1 : prev - 1));
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? Images?.length - 1 : prev - 1
+    );
   }
 
   function goNext() {
-    setCurrentImageIndex((prev) => (prev === Images.length - 1 ? 0 : prev + 1));
+    setCurrentImageIndex((prev) =>
+      prev === Images?.length - 1 ? 0 : prev + 1
+    );
   }
 
   useEffect(() => {

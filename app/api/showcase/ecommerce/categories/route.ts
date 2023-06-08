@@ -113,7 +113,7 @@ export async function DELETE(request: Request) {
     });
   }
 
-  if (category.productIDs.length > 0) {
+  if (category.productIDs?.length > 0) {
     return NextResponse.json({
       ok: false,
       error: `Category ${category.name} is already used by some products and you cannot delete this category.`,

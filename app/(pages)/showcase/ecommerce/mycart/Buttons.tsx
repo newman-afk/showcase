@@ -6,7 +6,7 @@ import {
   incrementProduct,
 } from "@/app/actions/cart";
 import { Button } from "@/components/ui/button";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { MinusIcon, PlusIcon } from "lucide-react";
 import { Payment } from "./columns";
 

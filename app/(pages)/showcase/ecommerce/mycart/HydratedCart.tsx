@@ -5,7 +5,7 @@ import { getAllProductsInCart } from "@/app/actions/cart";
 
 async function HydratedCart() {
   const queryClient = getQueryClient();
-  // await queryClient.prefetchQuery(["products-in-cart"], getAllProductsInCart);
+  await queryClient.prefetchQuery(["products-in-cart"], getAllProductsInCart);
   const dehydratedState = dehydrate(queryClient);
   return (
     <Hydrate state={dehydratedState}>

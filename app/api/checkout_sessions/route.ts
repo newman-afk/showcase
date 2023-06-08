@@ -3,6 +3,8 @@ import stripe from "@/app/lib/stripe";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
+const base_url = process.env.NEXT_PUBLIC_BASE_URL;
+
 export async function POST(request: Request) {
   const products: Payment[] = await request.json();
 
@@ -27,8 +29,8 @@ export async function POST(request: Request) {
     line_items,
     allow_promotion_codes: true,
     mode: "payment",
-    success_url: `http://localhost:3000/showcase/ecommerce/payment/success`,
-    cancel_url: `http://localhost:3000/showcase/ecommerce/mycart`,
+    success_url: `${base_url}/showcase/ecommerce/payment/success`,
+    cancel_url: `${base_url}/showcase/ecommerce/mycart`,
   };
   const checkoutSession: Stripe.Checkout.Session =
     await stripe.checkout.sessions.create(params);

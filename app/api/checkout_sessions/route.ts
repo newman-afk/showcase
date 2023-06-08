@@ -1,40 +1,30 @@
+import { Payment } from "@/app/(pages)/showcase/ecommerce/mycart/columns";
 import stripe from "@/app/lib/stripe";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 export async function POST(request: Request) {
+  const products: Payment[] = await request.json();
+
+  const line_items = products.map((product) => {
+    return {
+      price_data: {
+        currency: "USD",
+        product_data: {
+          name: product.name,
+          images: [product.image],
+        },
+        unit_amount: product.price * 100,
+      },
+      quantity: product.quantity,
+    };
+  });
+
   const params: Stripe.Checkout.SessionCreateParams = {
     submit_type: "pay",
     payment_method_types: ["alipay", "card"],
     billing_address_collection: "auto",
-    line_items: [
-      {
-        price_data: {
-          currency: "USD",
-          product_data: {
-            name: "Pixel 5",
-            images: [
-              "https://res.cloudinary.com/drsh2qu6f/image/upload/v1685734187/b1zzeo0aeqr8wwc1w2fd.jpg",
-            ],
-          },
-          unit_amount: 1000,
-        },
-        quantity: 2,
-      },
-      {
-        price_data: {
-          currency: "USD",
-          product_data: {
-            name: "iPhone11 Plus",
-            metadata: {
-              id: "12346549849448979498",
-            },
-          },
-          unit_amount: 1000,
-        },
-        quantity: 1,
-      },
-    ],
+    line_items,
     allow_promotion_codes: true,
     mode: "payment",
     success_url: `http://localhost:3000/showcase/ecommerce/payment/success`,

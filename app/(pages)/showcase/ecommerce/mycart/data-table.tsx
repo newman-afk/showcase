@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { Input } from "@/components/ui/input";
+import Checkout from "@/app/(pages)/showcase/ecommerce/mycart/Checkout";
 import {
   ColumnDef,
   flexRender,
@@ -66,10 +67,10 @@ export function DataTable<TData, TValue>({
     <div>
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          placeholder="Filter names..."
+          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
@@ -128,6 +129,8 @@ export function DataTable<TData, TValue>({
       </div>
 
       <DataTablePagination table={table} />
+
+      <Checkout table={table} />
     </div>
   );
 }

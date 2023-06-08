@@ -18,20 +18,13 @@ function ProductInfo() {
           <div className="flex-1">
             <div className="relative mx-auto h-[172px] max-w-[301px] rounded-t-xl border-[8px] border-gray-800 bg-gray-800 dark:border-gray-800 md:h-[294px] md:max-w-[512px]">
               <div className="relative h-[156px] overflow-hidden rounded-lg bg-white dark:bg-gray-800 md:h-[278px]">
-                <Image
-                  fill={true}
-                  sizes="100%"
-                  src="/images/ecommerce-light.png"
-                  className="h-[156px] w-full rounded-xl dark:hidden md:h-[278px]"
-                  alt=""
-                />
-                <Image
-                  fill={true}
-                  sizes="100%"
-                  src="/images/ecommerce-dark.png"
-                  className="hidden h-[156px] w-full rounded-lg dark:block md:h-[278px]"
-                  alt=""
-                />
+                <video
+                  src="/videos/ecommerce.mp4"
+                  controls
+                  autoPlay
+                  muted
+                  loop
+                ></video>
               </div>
             </div>
             <div className="relative mx-auto h-[17px] max-w-[351px] rounded-b-xl rounded-t-sm bg-gray-900 dark:bg-gray-700 md:h-[21px] md:max-w-[597px]">

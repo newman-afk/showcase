@@ -42,6 +42,9 @@ function LoginModal() {
                 <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
                   Sign in to our platform
                 </h3>
+                <span className=" text-xs">
+                  Experience Account: test@test.com password: 123456abc!
+                </span>
                 <LoginForm />
 
                 <div className="my-4 flex items-center gap-1 text-xs dark:text-slate-100">

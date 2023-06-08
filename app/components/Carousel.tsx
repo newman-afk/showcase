@@ -9,19 +9,22 @@ const Images = [
     id: "1",
     alt: "ecommerce",
     href: "#ecommerce",
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+    srcDark: "/images/ecommerce-dark.png",
+    srcLight: "/images/ecommerce-light.png",
   },
   {
     id: "2",
     alt: "chatapp",
     href: "#chatapp",
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
+    srcDark: "/images/coming-soon-dark.avif",
+    srcLight: "/images/coming-soon-light.avif",
   },
   {
     id: "3",
     alt: "videochatapp",
     href: "#videochatapp",
-    src: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+    srcDark: "/images/coming-soon-dark.avif",
+    srcLight: "/images/coming-soon-light.avif",
   },
 ];
 
@@ -50,14 +53,14 @@ function Carousel() {
 
   return (
     <div className="relative mx-auto aspect-video w-4/5">
-      <div className="flex h-full w-full rounded-lg">
+      <div className="flex h-full w-full items-center justify-center ">
         {Images.map((image, i) => {
           return (
             <a
               href={image.href}
               key={image.id}
               className={clsx(
-                "absolute h-full w-full",
+                "absolute h-5/6 w-full rounded-2xl border",
                 i !== currentImageIndex && " -z-50 opacity-0"
               )}
             >
@@ -67,9 +70,23 @@ function Carousel() {
                 fill={true}
                 sizes="100%"
                 style={{ objectFit: "cover" }}
-                src={image.src}
-                className=" rounded-2xl"
+                src={image.srcDark}
+                className=" rounded-2xl dark:block"
               />
+              <Image
+                priority
+                alt={image.alt}
+                fill={true}
+                sizes="100%"
+                style={{ objectFit: "cover" }}
+                src={image.srcLight}
+                className=" rounded-2xl dark:hidden"
+              />
+              {image.alt !== "ecommerce" && (
+                <div className=" absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10vw] font-bold text-emerald-600 dark:text-neutral-200/70">
+                  {image.alt}
+                </div>
+              )}
             </a>
           );
         })}
@@ -80,10 +97,10 @@ function Carousel() {
         onClick={goPrev}
         className="group absolute left-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
       >
-        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70 sm:h-10 sm:w-10">
+        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gray-800/30 group-hover:bg-gray-800/60 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-white/30 dark:group-hover:bg-white/50 dark:group-focus:ring-gray-800/70 sm:h-10 sm:w-10">
           <svg
             aria-hidden="true"
-            className="h-5 w-5 text-white dark:text-gray-800 sm:h-6 sm:w-6"
+            className="h-5 w-5 text-gray-800 dark:text-white sm:h-6 sm:w-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -104,10 +121,10 @@ function Carousel() {
         onClick={goNext}
         className="group absolute right-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
       >
-        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70 sm:h-10 sm:w-10">
+        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gray-800/30 group-hover:bg-gray-800/60 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-white/30 dark:group-hover:bg-white/50 dark:group-focus:ring-gray-800/70 sm:h-10 sm:w-10">
           <svg
             aria-hidden="true"
-            className="h-5 w-5 text-white dark:text-gray-800 sm:h-6 sm:w-6"
+            className="h-5 w-5 text-gray-800 dark:text-white sm:h-6 sm:w-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

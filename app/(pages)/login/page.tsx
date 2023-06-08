@@ -1,5 +1,12 @@
 import OpenLoginModal from "../../components/OpenLoginModal";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Login",
+  description: "Login page",
+};
+
 function page() {
   return (
     <>

@@ -1,4 +1,9 @@
-import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Intro what the project is",
+};
 
 function page() {
   return (

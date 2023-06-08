@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Contace Us, no, just me",
+};
+
 function Contact() {
   return (
     <div className="my-12 flex w-full items-center justify-center">

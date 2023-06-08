@@ -5,7 +5,7 @@ import { Product } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
-import AddToCartButton from "../../../components/AddToCartButton";
+import AddToCartButton from "../../../../../../components/AddToCartButton";
 
 type ProductsType = {
   ok: boolean;

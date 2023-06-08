@@ -1,4 +1,4 @@
-import OpenLoginModal from "./OpenLoginModal";
+import OpenLoginModal from "../../components/OpenLoginModal";
 
 function page() {
   return (

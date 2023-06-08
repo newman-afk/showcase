@@ -128,6 +128,9 @@ export function DeleteButton({ id }: { id: string }) {
     onError(error, variables, context) {
       queryClient.setQueryData(["products-in-cart"], context?.previousData);
     },
+    onSuccess(data, variables, context) {
+      queryClient.invalidateQueries({ queryKey: ["quantity"] });
+    },
     onSettled() {
       queryClient.invalidateQueries({ queryKey: ["products-in-cart"] });
     },

@@ -1,5 +1,5 @@
 import { Hydrate, dehydrate } from "@tanstack/react-query";
-import getQueryClient from "../../../../../../lib/getQueryClient";
+import getQueryClient from "@/app/lib/getQueryClient";
 import { getAllBrands } from "@/app/actions/brands";
 import Brands from "./Brands";
 

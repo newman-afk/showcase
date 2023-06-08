@@ -1,7 +1,7 @@
 import { Hydrate, dehydrate } from "@tanstack/react-query";
-import getQueryClient from "../../../../../../lib/getQueryClient";
-import { getAllCategories } from "../../../../../../actions/categories";
+import getQueryClient from "@/app/lib/getQueryClient";
 import Categories from "./Categories";
+import { getAllCategories } from "../actions/categories";
 
 async function HydratedCategories() {
   const queryClient = getQueryClient();

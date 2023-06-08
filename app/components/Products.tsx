@@ -5,7 +5,7 @@ import { Product } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
-import AddToCartButton from "../../../../../../components/AddToCartButton";
+import AddToCartButrton from "./AddToCartButton";
 
 type ProductsType = {
   ok: boolean;
@@ -111,7 +111,7 @@ function Products() {
                 <span className="text-3xl font-bold text-gray-900 dark:text-white">
                   ${product?.price}
                 </span>
-                <AddToCartButton productId={product?.id} />
+                <AddToCartButrton productId={product?.id} />
               </div>
             </div>
           </div>

@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { Input } from "@/components/ui/input";
-import Checkout from "@/app/(pages)/showcase/ecommerce/mycart/components/Checkout";
 import {
   ColumnDef,
   flexRender,
@@ -26,6 +25,7 @@ import {
 } from "@/components/ui/table";
 import { DataTablePagination } from "@/app/components/DataTablePagination";
 import { DataTableViewOptions } from "@/app/components/DataTableViewOptions";
+import Checkout from "./Checkout";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];

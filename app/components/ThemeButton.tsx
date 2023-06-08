@@ -1,8 +1,8 @@
 "use client";
 
 import clsx from "clsx";
-import useLocalStorage from "../../hooks/useLocalStorage";
 import { useEffect } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 function ThemeButton() {
   const [value, setValue] = useLocalStorage("color-theme", "dark");

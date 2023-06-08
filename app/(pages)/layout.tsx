@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "react-hot-toast";
 import LoginModal from "../components/LoginModal/LoginModal";
 import RegisterModal from "../components/registerModal/RegisterModal";
@@ -32,6 +33,7 @@ export default async function RootLayout({
           <Footer />
           <ReactQueryDevtools />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );

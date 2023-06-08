@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Input } from "@/components/ui/input";
-import Checkout from "@/app/(pages)/showcase/ecommerce/mycart/Checkout";
+import Checkout from "@/app/(pages)/showcase/ecommerce/mycart/components/Checkout";
 import {
   ColumnDef,
   flexRender,

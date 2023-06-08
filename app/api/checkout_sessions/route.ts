@@ -1,4 +1,4 @@
-import { Payment } from "@/app/(pages)/showcase/ecommerce/mycart/columns";
+import { Payment } from "@/app/(pages)/showcase/ecommerce/mycart/components/columns";
 import stripe from "@/app/lib/stripe";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";

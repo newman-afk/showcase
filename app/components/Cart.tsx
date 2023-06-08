@@ -16,7 +16,8 @@ function Cart() {
 
   return (
     <div>
-      <DataTable columns={columns} data={data} />
+      {data === null && <div>Loading</div>}
+      {data && <DataTable columns={columns} data={data} />}
     </div>
   );
 }

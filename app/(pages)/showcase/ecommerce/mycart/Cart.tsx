@@ -1,7 +1,7 @@
 "use client";
 
 import { DataTable } from "./data-table";
-import { Payment, columns } from "./columns";
+import { columns } from "./columns";
 import { useQuery } from "@tanstack/react-query";
 import { getAllProductsInCart } from "@/app/actions/cart";
 

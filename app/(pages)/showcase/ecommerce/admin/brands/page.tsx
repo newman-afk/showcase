@@ -1,5 +1,5 @@
-import CreateBrandForm from "@/app/(pages)/showcase/ecommerce/admin/brands/components/CreateBrandForm";
-import HydratedBrands from "@/app/(pages)/showcase/ecommerce/admin/brands/components/HydratedBrands";
+import CreateBrandForm from "@/app/components/CreateBrandForm";
+import HydratedBrands from "@/app/components/HydratedBrands";
 
 function AdminBrandsPage() {
   return (

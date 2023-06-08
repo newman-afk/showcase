@@ -1,4 +1,4 @@
-import HydratedCart from "./components/HydratedCart";
+import HydratedCart from "@/app/components/HydratedCart";
 
 function MyCartPage() {
   return (

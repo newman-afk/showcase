@@ -1,4 +1,4 @@
-import EcommerceNavbar from "@/app/(pages)/showcase/ecommerce/components/EcommerceNavbar";
+import EcommerceNavbar from "@/app/components/EcommerceNavbar";
 
 interface layoutProps {
   children: React.ReactNode;

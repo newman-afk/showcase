@@ -68,11 +68,7 @@ function ProductInfo() {
               Powerful Ecommerce website with dedicated Nextjs to provide SEO
               services; server rendering for maximum information security;
               administrator account to easily add products; and use Stripe to
-              provide web-based online payment features. Powerful Ecommerce
-              website with dedicated Nextjs to provide SEO services; server
-              rendering for maximum information security; administrator account
-              to easily add products; and use Stripe to provide web-based online
-              payment features.
+              provide web-based online payment features.
             </div>
             <Link
               href="/showcase/ecommerce"

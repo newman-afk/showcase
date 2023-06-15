@@ -30,7 +30,8 @@ export function DecrementButton({ id }: { id: string }) {
           let newData: Payment[] = JSON.parse(JSON.stringify(old));
 
           return newData.map((item) => {
-            item.quantity = item.quantity <= 1 ? 1 : item.quantity - 1;
+            if (item.id === id)
+              item.quantity = item.quantity <= 1 ? 1 : item.quantity - 1;
             return item;
           });
         }
@@ -76,7 +77,8 @@ export function IncrementButton({ id }: { id: string }) {
           let newData: Payment[] = JSON.parse(JSON.stringify(old));
 
           return newData.map((item) => {
-            item.quantity = item.quantity <= 1 ? 1 : item.quantity + 1;
+            if (item.id === id)
+              item.quantity = item.quantity <= 1 ? 1 : item.quantity + 1;
             return item;
           });
         }

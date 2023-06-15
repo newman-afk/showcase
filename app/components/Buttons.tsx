@@ -27,11 +27,12 @@ export function DecrementButton({ id }: { id: string }) {
         (old: Payment[] | undefined | null) => {
           if (old === null || old === undefined) return old;
 
-          const newData = old.map((item) => {
-            item.quantity = item.quantity <= 1 ? 1 : item.quantity + 1;
+          let newData: Payment[] = JSON.parse(JSON.stringify(old));
+
+          return newData.map((item) => {
+            item.quantity = item.quantity <= 1 ? 1 : item.quantity - 1;
             return item;
           });
-          return newData;
         }
       );
 
@@ -72,11 +73,12 @@ export function IncrementButton({ id }: { id: string }) {
         (old: Payment[] | undefined | null) => {
           if (old === null || old === undefined) return old;
 
-          const newData = old.map((item) => {
-            item.quantity = item.quantity <= 1 ? 1 : item.quantity - 1;
+          let newData: Payment[] = JSON.parse(JSON.stringify(old));
+
+          return newData.map((item) => {
+            item.quantity = item.quantity <= 1 ? 1 : item.quantity + 1;
             return item;
           });
-          return newData;
         }
       );
 
